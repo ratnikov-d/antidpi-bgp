@@ -1,0 +1,20 @@
+services:
+  bgp-iplist:
+    image: ghcr.io/yourrepo/bgp-iplist:latest
+    container_name: antidpi-bgp
+
+    network_mode: host
+
+    restart: unless-stopped
+
+    cap_add:
+      - NET_ADMIN
+
+    env_file:
+      - .env
+
+    healthcheck:
+      test: ["CMD", "birdc", "show", "status"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
