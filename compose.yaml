@@ -3,7 +3,7 @@ services:
     image: ghcr.io/yourrepo/bgp-iplist:latest
     container_name: antidpi-bgp
 
-    #network_mode: host
+    network_mode: host
 
     restart: unless-stopped
 
